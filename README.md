@@ -1,24 +1,36 @@
-# README
+# 心技体
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+アクティブトラッキング＆情報共有SNS
+心技体はそれぞれ、瞑想、ストレッチ、トレーニングのアクティビティのことを指しており、それらの記録をポストし共有するサイト
 
-Things you may want to cover:
+### サイトテーマ
+日々活動する学生やサラリーマン向けの自身をメンテナンスするサービス
 
-* Ruby version
+### テーマを選んだ理由
+自分自身3歳のころに水泳を始め、知識を付けていくうちに適度な運動やその継続から得られるメリットが大きいと実感しており、
+それらを楽しくシェア、継続していけるサービスがあったらいいなと思ったため
 
-* System dependencies
+### ターゲットユーザ
+学生や働く人々(コアなアスリートのみではなく一般的な方も使いやすいように)
 
-* Configuration
+### 主な利用シーン
+日常で、瞑想やストレッチ、トレーニングを行った際に手軽にそれらの内容、感想や自身での振り返りをポストしていただけるようにする。
+ユーザ間ではフォローをすることができ、タイムライン上のアクティビティのポストを閲覧することによって、インスピレーションや、モチベーションを得られるようにする。
 
-* Database creation
+## 設計書
 
-* Database initialization
 
-* How to run the test suite
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1whfHNN2Cmhq7iqyD7ihT0lIVRlkxJKpPEX5q8MW_pCw/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：windows10
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
