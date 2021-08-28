@@ -24,10 +24,10 @@
 ### 主な利用シーン
 - 自宅でのアクティビティを記録し、アーカイブしたい時。
 - 友人や、他の利用者の投稿を閲覧し、インスピレーションを受けたいとき。
-- 自身の活動を共有し、意見交換や情報発信を行いたいとき
+- 自身の活動を共有し、意見交換や情報発信を行いたいとき。
 
 ## 設計書
-
+https://drive.google.com/file/d/1QHvtldlbV7djqGM15-hJL3Mb7JkJJPOF/view?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1whfHNN2Cmhq7iqyD7ihT0lIVRlkxJKpPEX5q8MW_pCw/edit?usp=sharing
