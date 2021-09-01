@@ -15,6 +15,9 @@
     <ul>
       <li>About</li>
       <li>ログイン</li>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
     </ul>
   </nav>
 
