@@ -1,0 +1,12 @@
+<h2>新規ポスト</h2>
+<%= form_with model: @post, local: true do |f| %>
+	<%= f.radio_button :select_category, 1, checked: "checked" %>
+	<%= f.label :瞑想 %>
+	<%= f.radio_button :select_category, 2 %>
+	<%= f.label :ストレッチ %>
+	<%= f.radio_button :select_category, 3 %>
+	<%= f.label :トレーニング %>
+	<%= f.text_area :body, placeholder: 'アクティビティの記録の入力をお願いします' %>
+	<%= f.attachment_field :image %>
+	<%= f.submit "ポスト新規投稿" %>
+<% end %>
