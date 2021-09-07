@@ -38,3 +38,7 @@ https://docs.google.com/spreadsheets/d/1whfHNN2Cmhq7iqyD7ihT0lIVRlkxJKpPEX5q8MW_
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 画像素材
+- http://design-ec.com/?p=55
+- http://icooon-mono.com/
