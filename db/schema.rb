@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_04_001000) do
+ActiveRecord::Schema.define(version: 2021_09_07_092924) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2021_09_04_001000) do
   create_table "follows", force: :cascade do |t|
     t.integer "from_user_id", null: false
     t.integer "to_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.text "comment", null: false
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
