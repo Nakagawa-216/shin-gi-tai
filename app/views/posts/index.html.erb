@@ -1,0 +1,27 @@
+<h2>New Posts</h2>
+
+<% @posts.last(4).each do |post| %>
+	<%= attachment_image_tag post.user, :icon_image_id, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
+	<%= attachment_image_tag post, :image_id, :fill, 180, 125, format: 'jpeg', fallback: "no_image.png", size:"180x125" %>
+<% end %>
+
+<h2>Side Bar</h2>
+<%= attachment_image_tag @user, :icon_image_id, :fill, 100, 100, format: 'jpeg', fallback: "no_icon_image", size:"100x100" %></br>
+<%= current_user.name %></br>
+10フォロー
+10フォロワー</br>
+<%= @user.posts.count %> posts</br>
+200 likes</br>
+
+アクティビティポイント</br>
+200 Points
+
+<h2>Time Line</h2>
+
+<% @posts.each do |post| %>
+	<%= attachment_image_tag post.user, :icon_image_id, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
+	<%= post.user.name %>
+	<%= post.created_at %></br>
+	<%= attachment_image_tag post, :image_id, :fill, 180, 125, format: 'jpeg', fallback: "no_image.png", size:"180x125" %>
+	<%= post.body %></br>
+<% end %>

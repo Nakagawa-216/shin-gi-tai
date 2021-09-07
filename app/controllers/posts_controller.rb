@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 	end
 
   def create
-
   	@post = Post.new(post_params)
   	@post.user_id = current_user.id
   	@post.category_id = params[:post][:select_category]
@@ -14,6 +13,8 @@ class PostsController < ApplicationController
   end
 
 	def index
+		@posts = Post.all
+		@user = current_user
 	end
 
 	def show
