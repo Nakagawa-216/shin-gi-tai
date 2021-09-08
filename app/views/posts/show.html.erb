@@ -4,6 +4,8 @@
 <%= @post.created_at.strftime('%Y/%m/%d %H:%M:%S') %></br>
 <%= attachment_image_tag @post, :image %>
 <%= @post.body %>
+<%= link_to "編集する", edit_post_path(@post) %>
+
 <% if @post.favorited_by?(current_user) %>
 	<%= link_to favorite_path(post_id: @post.id), method: :delete do %>
 		♥<%= @post.favorites.count %>いいね
