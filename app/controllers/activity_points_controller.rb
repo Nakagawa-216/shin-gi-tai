@@ -1,0 +1,2 @@
+class ActivityPointsController < ApplicationController
+end
