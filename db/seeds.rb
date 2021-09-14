@@ -12,6 +12,11 @@ users = User.create!(
       email: 'a@a',
       name: 'テスト太郎',
       password: '111111'
+    },
+    {
+      email: 'b@b',
+      name: 'テスト二郎',
+      password: '111111'
     }
   ]
 )
