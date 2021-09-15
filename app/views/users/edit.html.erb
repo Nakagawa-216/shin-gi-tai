@@ -1,0 +1,25 @@
+<div>
+	<h1>登録情報編集</h1>
+	<div>
+		<%= form_with model:@user, local: true do |f| %>
+			<div>
+				<%= f.attachment_field :icon_image %>
+			</div>
+			<div>
+				<%= f.label :名前 %>
+				<%= f.text_field :name %>
+			</div>
+			<div>
+				<%= f.label :自己紹介 %>
+				<%= f.text_area :introduction %>
+			</div>
+			<div>
+				<%= f.label :メールアドレス %>
+				<%= f.text_field :email %>
+			</div>
+			<dic>
+				<%= f.submit "更新" %>
+			</dic>
+			<% end %>
+	</div>
+</div>
