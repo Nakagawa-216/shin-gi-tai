@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_071632) do
+ActiveRecord::Schema.define(version: 2021_09_14_082424) do
 
   create_table "activity_points", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -67,11 +67,11 @@ ActiveRecord::Schema.define(version: 2021_09_13_071632) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.string "icon_image_id"
     t.string "introduction"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "icon_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
