@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
+
 	def show
 		@user = User.find(params[:id])
 		@posts = @user.posts.all
@@ -24,6 +26,16 @@ class UsersController < ApplicationController
 		user = User.find(params[:id])
 		user.update(user_params)
 		redirect_to user_path(user)
+	end
+
+	def unsubscribe
+	end
+
+	def withdraw
+		user = User.find(current_user.id)
+		user.update(is_deleted: "true")
+		reset_session
+		redirect_to root_path
 	end
 
 	private
