@@ -14,6 +14,10 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
   attachment :icon_image
 
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)
