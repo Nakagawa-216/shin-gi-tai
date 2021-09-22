@@ -33,7 +33,7 @@
 		<div class="col-md-3 sidebar">
 			<div class="sidebar_icon">
 				<%= link_to user_path(current_user.id), style: 'text-decoration: none;' do %>
-					<%= attachment_image_tag @user, :icon_image, :fill, 130, 130, format: 'jpeg', fallback: "no_icon_image", size:"130x130" %>
+					<%= attachment_image_tag @user, :icon_image, :fill, 130, 130, format: 'jpeg', fallback: "no_icon_image.jpeg", size:"130x130" %>
 				<% end %>
 			</div>
 			<div class="ml-3">
