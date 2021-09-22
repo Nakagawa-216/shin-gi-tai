@@ -1,0 +1,87 @@
+<div class="container-fluid", id="show-user">
+	<div class="row show-user-content-head">
+		<%= attachment_image_tag @user, :icon_image, :fill, 100, 100, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'100x100' %>
+		<p class="mr-5 mb-0"><%= @user.name %></p>
+		<div class="follow">
+			<%= link_to following_user_path(@user.id), style: 'margin-right: 10px;', class: 'text-dark' do %>
+				フォロー<%= @user.followings.count %>人
+			<% end %>
+		</div>
+		<div class="follower">
+			<%= link_to followers_user_path(@user.id), class: 'text-dark' do %>
+				フォロワー<%= @user.followers.count %>人
+			<% end %>
+		</div>
+		<div class="follow-btn">
+			<% unless @user == current_user %>
+				<% if current_user.following?(@user) %>
+					<%= form_with model: @relationship, url: relationship_path, method: :delete, local: true do |f| %>
+						<%= f.hidden_field :follow_id, value: @user.id %>
+						<%= f.submit "フォロー解除" %>
+					<% end %>
+				<% else %>
+					<%= form_with model: @relationship, url: relationships_path, method: :post, local: true do |f| %>
+						<%= f.hidden_field :follow_id, value: @user.id %>
+						<%= f.submit "フォローする" %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+		<%= link_to "登録情報編集", edit_user_path(current_user.id), style: 'margin: 0 0 0 auto;', class: 'btn btn-sm btn-primary' %>
+	</div>
+	<div class="row activity-point-charts">
+		<h2>Activity Points</h2>
+		<div class="col-6">
+			<%= column_chart ActivityPoint.group("strftime('%Y-%m-%d', created_at)").sum(:activity_point), colors: ["rgba(126,217,87,0.7)"] %>
+		</div>
+		<div class="col-6">
+			<%= pie_chart ActivityPoint.group(:category_id).sum(:activity_point), colors: ["rgb(126,217,87)", "rgb(56,182,255)", "rgb(255,87,87)"] %>
+		</div>
+	</div>
+	<h2>User Posts</h2>
+	<div class="col-md-8 mx-auto timeline">
+				<% @posts.each do |post| %>
+					<% if post.category_id == 1 %>
+						<div class="timeline-card category-meditation">
+							<%= attachment_image_tag post.user, :icon_image, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
+							<%= post.user.name %>
+							<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span></br>
+							<div class="timeline-card_contents">
+								<%= link_to post_path(post), style: 'text-decoration: none;' do %>
+									<div class="timeline-card_image"><%= attachment_image_tag post, :image, :fill, 216, 150, format: 'jpeg', fallback: "no_image.png", size:"216x150" %></div>
+								<% end %>
+								<div class="timeline-card_post-body"><%= post.body.truncate(40) %></div>
+							</div>
+							<p>Meditation</p>
+						</div>
+					<% elsif post.category_id == 2 %>
+							<div class="timeline-card category-stretching">
+								<%= attachment_image_tag post.user, :icon_image, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
+								<%= post.user.name %>
+								<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span></br>
+								<div class="timeline-card_contents">
+								<%= link_to post_path(post), style: 'text-decoration: none;' do %>
+									<div class="timeline-card_image"><%= attachment_image_tag post, :image, :fill, 216, 150, format: 'jpeg', fallback: "no_image.png", size:"216x150" %></div>
+								<% end %>
+									<div class="timeline-card_post-body"><%= post.body.truncate(40) %></div>
+								</div>
+								<p>Stretching</p>
+							</div>
+					<% else %>
+							<div class="timeline-card category-work_out">
+								<%= attachment_image_tag post.user, :icon_image, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
+								<%= post.user.name %>
+								<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span></br>
+								<div class="timeline-card_contents">
+									<%= link_to post_path(post), style: 'text-decoration: none;' do %>
+										<div class="timeline-card_image"><%= attachment_image_tag post, :image, :fill, 216, 150, format: 'jpeg', fallback: "no_image.png", size:"216x150" %></div>
+									<% end %>
+									<div class="timeline-card_post-body"><%= post.body.truncate(40) %></div>
+								</div>
+								<p>Work-Out</p>
+							</div>
+					<% end %>
+				<% end %>
+			</div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+<%= form_with model:@post, local: true do |f| %>
+	<h2 class="mb-5">投稿内容編集</h2>
+	<div class="row edit-post-form">
+		<h4>カテゴリ</h4>
+		<div class="category-button pb-3 mb-5">
+			<%= f.radio_button :select_category, 1, checked: "checked" %>
+			<%= f.label :select_category, "瞑想", value: 1, class: "input-meditation" %>
+			<%= f.radio_button :select_category, 2 %>
+			<%= f.label :select_category, "ストレッチ", value: 2, class: "input-stretching" %>
+			<%= f.radio_button :select_category, 3 %>
+			<%= f.label :select_category, "トレーニング", value: 3, class: "input-work_out" %>
+		</div>
+		<h4 class="mb-3">画像変更</h4>
+		<div class="edit-image">
+			<div class="col-9 view-image"><%= attachment_image_tag @post, :image, :fill, 1000, 562, format: 'jpeg' %></div>
+			<div class="col-3 mb-5"><%= f.attachment_field :image %></div>
+		</div>
+		<div class="edit-body col-12 mb-3">
+			<h4>Body</h4>
+			<%= f.text_area :body, style: 'resize: none; height:200px; width: 800px;' %>
+		</div>
+		<div class="col-3 action mb-5">
+			<%= f.submit "更新", class: 'btn btn-sm btn-success', style: 'margin-left: 20px; margin-right: 20px;' %>
+			<%= link_to "削除", post_path(@post), method: :delete, class: 'btn btn-sm btn-danger' %>
+		</div>
+	</div>
+<% end %>
+</div>
