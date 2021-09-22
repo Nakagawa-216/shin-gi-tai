@@ -1,3 +1,8 @@
-本当に退会しますか？
+<div class="container unsubscribe">
+	<p class="">本当に退会しますか？</p>
+	<div class="unsubscribe-buttons">
+		<%= link_to "退会する", user_withdraw_path, method: :patch, class: "withdraw-button btn btn-sm btn-danger" %>
+		<%= link_to "戻る", user_path(@user), class: "btn btn-sm btn-primary" %>
+	</div>
+</div>
 
-<%= link_to "退会する", user_withdraw_path, method: :patch %>

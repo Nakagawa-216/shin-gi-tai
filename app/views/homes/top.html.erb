@@ -1,7 +1,21 @@
-<div class="container">
-  <div class="box box-1">1</div>  <!-- flex-item(子要素) -->
-  <div class="box box-2">2</div>
-  <div class="box box-3">3</div>
-  <div class="box box-4">4</div>
-  <div class="box box-5">5</div>
+<div class="container-fluid", id="top-page">
+  <div class="top-image">
+    <div class="top-text">
+      <p>ココロとカラダのメンテナンス</p>
+    </div>
+    <div class="top-title">
+      <p><strong>心技体</strong></p>
+    </div>
+  </div>
 </div>
+<div class="container-fluid">
+  <div class="top-link">
+    <div class="col-4 mt-3 mr-5">
+      <p>
+        まだ会員登録がお済みでない方は
+        <%= link_to "こちら", new_user_registration_path %> から
+      </p>
+    </div>
+  </div>
+</div>
+
