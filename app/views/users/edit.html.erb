@@ -1,0 +1,29 @@
+<div class="container">
+<%= form_with model:@user, local: true do |f| %>
+	<h2 class="mb-4">登録情報編集</h2>
+	<div class="edit-user-form">
+		<div class="row mb-3">
+			<div class="col-3"><%= f.label :名前 %></div>
+			<div class="col-9"><%= f.text_field :name %></div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-3"><%= f.label :自己紹介 %></div>
+			<div class="col-9"><%= f.text_area :introduction, style: 'resize: none; height:70px; width: 500px;' %></div>
+		</div>
+		<div class="row mb-3">
+			<div class="col-3"><%= f.label :メールアドレス %></div>
+			<div class="col-9"><%= f.text_field :email %></div>
+		</div>
+		<div class="row mb-5">
+			<div class="col-4"><%= f.attachment_field :icon_image %></div>
+		</div>
+		<div class="row action">
+			<div class="col-4 mx-auto">
+				<%= f.submit "更新", class: 'btn btn-sm btn-primary mr-3' %>
+				<%= link_to "退会する", user_unsubscribe_path(:id => @user.id), class: 'btn btn-sm btn-danger' %>
+			</div>
+
+		</div>
+	</div>
+<% end %>
+</div>
