@@ -4,11 +4,20 @@ class PostsController < ApplicationController
 	end
 
   def create
+  	#ポスト作成機能
   	@post = Post.new(post_params)
   	@post.user_id = current_user.id
   	@post.category_id = params[:post][:select_category]
   	@post.save
-  	redirect_to root_path
+  	#アクティビティポイント作成機能
+
+  	activity_point = ActivityPoint.new
+  	activity_point.category_id = @post.category_id
+  	activity_point.user_id = current_user.id
+  	activity_point.activity_point += 10
+  	activity_point.post_id = @post.id
+  	activity_point.save
+  	redirect_to post_path(@post)
   end
 
 	def index

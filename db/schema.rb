@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_082424) do
   create_table "activity_points", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "category_id", null: false
+    t.integer "post_id", null: false
     t.integer "activity_point", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_082424) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "category_id", null: false
+    t.integer "activity_point_id"
     t.string "image_id"
     t.text "body", null: false
     t.datetime "created_at", null: false

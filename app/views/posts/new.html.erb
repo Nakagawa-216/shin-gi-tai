@@ -1,12 +1,28 @@
-<h2>新規ポスト</h2>
-<%= form_with model: @post, local: true do |f| %>
-	<%= f.radio_button :select_category, 1, checked: "checked" %>
-	<%= f.label :瞑想 %>
-	<%= f.radio_button :select_category, 2 %>
-	<%= f.label :ストレッチ %>
-	<%= f.radio_button :select_category, 3 %>
-	<%= f.label :トレーニング %>
-	<%= f.text_area :body, placeholder: 'アクティビティの記録の入力をお願いします' %>
-	<%= f.attachment_field :image %>
-	<%= f.submit "ポスト新規投稿" %>
+<div class="container">
+	<h2 class="mb-5">新規ポスト</h2>
+	<%= form_with model: @post, local: true do |f| %>
+	<div class="row">
+		<h4>カテゴリ</h4>
+		<div class="category-button pb-3 mb-5">
+			<%= f.radio_button :select_category, 1, checked: "checked" %>
+			<%= f.label :select_category, "瞑想", value: 1, class: "input-meditation" %>
+			<%= f.radio_button :select_category, 2 %>
+			<%= f.label :select_category, "ストレッチ", value: 2, class: "input-stretching" %>
+			<%= f.radio_button :select_category, 3 %>
+			<%= f.label :select_category, "トレーニング", value: 3, class: "input-work_out" %>
+		</div>
+		<div class="new-post_image-field pb-3 mb-5"><%= f.attachment_field :image %></div>
+		<div class="new-post_text-field mt-3 mb-5">
+			<%= f.text_area :body, placeholder: 'アクティビティの記録の入力をお願いします', style: 'resize: none; height:200px; width: 800px;' %>
+		</div>
+		<div class="mx-auto"><%= f.submit "ポスト新規投稿", class: "btn btn-lg btn-success" %></div>
+	</div>
 <% end %>
+</div>
+
+
+
+
+
+
+

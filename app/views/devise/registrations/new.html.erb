@@ -1,34 +1,44 @@
-<h2>新規登録</h2>
-
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local:true do |f| %>
+<div class="container">
+  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local:true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %></br>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <% if @minimum_password_length %>
-    (<%= @minimum_password_length %> 文字以上)
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
+    <h2 class="mb-3">新規登録</h2>
+    <div class="col-8 mx-auto">
+      <div class="row mb-3">
+        <div class="col-4"><%= f.label :name, :ユーザーネーム %></br></div>
+        <div class="col-8"><%= f.text_field :name, autofocus: true, autocomplete: "name", size: "30" %></div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-4"><%= f.label :email, :メールアドレス %></div>
+        <div class="col-8"><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50" %></div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-4">
+          <%= f.label :password, :パスワード %>
+          <% if @minimum_password_length %>
+            (<%= @minimum_password_length %> 文字以上)
+          <% end %>
+        </div>
+        <div class="col-8">
+          <%= f.password_field :password, autocomplete: "new-password", size: "50" %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-4"><%= f.label :password_confirmation, :パスワード確認 %></div>
+        <div class="col-8"><%= f.password_field :password_confirmation, autocomplete: "new-password", size: "50" %></div>
+      </div>
+      <div class="col-3 mb-3 mx-auto">
+        <%= f.submit "新規登録", class:"btn btn-success btn-sm" %>
+      </div>
+    </div>
+    <div>
+      <p>
+        すでに登録がお済みの方は
+        <%= link_to "こちら", new_user_session_path %> からログイン
+      </p>
+    </div>
 <% end %>
+</div>
 
-まだ登録がお済みでない方はこちらからログイン
+
+
+

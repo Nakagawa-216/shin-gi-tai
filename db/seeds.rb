@@ -34,28 +34,3 @@ categories = Category.create!(
     }
   ]
 )
-
-activity_points = ActivityPoint.create!(
-  [
-    { 
-      user_id: 1,
-      category_id: 1,
-      activity_point: 10
-    },
-    { 
-      user_id: 1,
-      category_id: 1,
-      activity_point: 10
-    },
-    {
-      user_id: 1,
-      category_id: 2,
-      activity_point: 10
-    },
-    {
-      user_id: 1,
-      category_id: 3,
-      activity_point: 10
-    }
-  ]
-)

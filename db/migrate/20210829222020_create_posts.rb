@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
 
       t.integer :user_id, null: false
       t.integer :category_id, null: false
+      t.integer :activity_point_id
       t.string :image_id
       t.text :body, null: false
 
