@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<h4>New Posts</h4>
+	<h4>New Global Posts</h4>
 	<div class="row new-posts">
 		<% @posts.last(4).each do |post| %>
 			<% if post.category_id == 1 %>
@@ -51,15 +51,17 @@
 					</p>
 				</div>
 				<p><%= @user.posts.count %> posts</p>
-				アクティビティポイント
-				200 Points
+				<div class="activity-point-box">
+					Activity Points:
+					<p class="activity-point"><%= @activity_points %> <span>Pts</span></p>
+				</div>
 			</div>
 			<div class="new-post">
 				<%= link_to "新規投稿", new_post_path, class: "btn btn-success" %>
 			</div>
 		</div>
 		<div class="col-md-8 timeline">
-			<% @posts.each do |post| %>
+			<% @following_posts.each do |post| %>
 				<% if post.category_id == 1 %>
 					<div class="timeline-card category-meditation">
 						<%= attachment_image_tag post.user, :icon_image, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
