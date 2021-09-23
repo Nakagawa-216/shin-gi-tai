@@ -23,6 +23,11 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.all
 		@user = current_user
+		#フォローしているユーザのポストを取得
+		@following_users = current_user.followings
+		@following_posts = Post.where(user_id: @following_users)
+		#アクティビティポイントの計算
+		@activity_points = (current_user.activity_points).sum(:activity_point)
 	end
 
 	def show
