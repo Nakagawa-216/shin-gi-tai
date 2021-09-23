@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@posts = @user.posts.all
 		@relationship = Relationship.new
+		#アクティビティポイントの処理
+		# @activity_point =
 	end
 
 	def following

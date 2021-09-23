@@ -32,7 +32,7 @@
 	<div class="row activity-point-charts">
 		<h2>Activity Points</h2>
 		<div class="col-6">
-			<%= column_chart ActivityPoint.group("strftime('%Y-%m-%d', created_at)").sum(:activity_point), colors: ["rgba(126,217,87,0.7)"] %>
+			<%= column_chart ActivityPoint.group("date(created_at)").sum(:activity_point), colors: ["rgba(126,217,87,0.7)"] %>
 		</div>
 		<div class="col-6">
 			<%= pie_chart ActivityPoint.group(:category_id).sum(:activity_point), colors: ["rgb(126,217,87)", "rgb(56,182,255)", "rgb(255,87,87)"] %>
