@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 		@posts = @user.posts.all
 		@relationship = Relationship.new
 		#アクティビティポイントの処理
-		# @activity_point =
+		@activity_points = ActivityPoint.where(user_id: params[:id])
 	end
 
 	def following
