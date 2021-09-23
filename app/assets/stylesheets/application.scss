@@ -231,6 +231,23 @@ footer p {
 	margin-right: 10px;
 }
 
+.activity-point-box {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.activity-point {
+	display: inline-block;
+	font-size: 40px;
+	font-weight: 800;
+	padding-left: 10px;
+}
+
+.activity-point span {
+	font-size: 20px;
+}
+
 .new-post {
 	position: absolute;
 	bottom: 0;
