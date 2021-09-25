@@ -1,4 +1,6 @@
 class FollowsController < ApplicationController
+	before_action :authenticate_user!
+	
 	def create
 		# binding.pry
 		@user = User.find(user_params[:user_id])
