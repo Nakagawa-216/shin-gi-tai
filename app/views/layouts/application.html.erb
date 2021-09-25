@@ -30,8 +30,10 @@
           </div>
         </nav>
       </header>
-      <%= notice %>
-      <%= alert %>
+      <div class="container-fluid">
+        <p id="notice"><%= notice %></p>
+        <p id="alert"><%= alert %></p>
+      </div>
       <main>
       <%= yield %>
       </main>

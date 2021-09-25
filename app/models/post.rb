@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   belongs_to :category
   attachment :image
 
+  validates :body, presence: true, length: { maximum: 300 }
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

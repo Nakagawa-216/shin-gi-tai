@@ -6,7 +6,11 @@
 				<div class="col-2"><%= attachment_image_tag user, :icon_image, :fill, 50, 50, format: 'jpeg', fallback: 'no_icon_image.jpeg', size: '50x50' %></div>
 			<% end %>
 				<div class="col-2"><%= user.name %></div>
-				<div class="col-5"><%= user.introduction.truncate(50) %></div>
+				<div class="col-5">
+					<% unless user.introduction.blank? %>
+						<%= user.introduction.truncate(50) %>
+					<% end %>
+				</div>
 		</div>
 	<% end %>
 </div>

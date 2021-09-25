@@ -11,7 +11,6 @@ class FollowsController < ApplicationController
 	end
 
 	def destroy
-
 	end
 
 	private
