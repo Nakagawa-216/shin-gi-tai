@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
+	before_action :correct_user, only: [:edit, :update]
 
 	def show
 		@user = User.find(params[:id])
@@ -25,8 +26,14 @@ class UsersController < ApplicationController
 
 	def update
 		user = User.find(params[:id])
-		user.update(user_params)
-		redirect_to user_path(user)
+		if user.update(user_params)
+			flash[:notice] = "登録情報を変更しました"
+			redirect_to user_path(user)
+		else
+			flash.now[:alert] = "必要事項を入力してください"
+			@user = User.find(params[:id])
+			render("users/edit")
+		end
 	end
 
 	def unsubscribe
@@ -43,5 +50,10 @@ class UsersController < ApplicationController
 	private
 	def user_params
 		params.require(:user).permit(:name, :introduction, :email, :icon_image)
+	end
+
+	def correct_user
+		@user = User.find(params[:id])
+		redirect_to(user_path(current_user)) unless @user == current_user
 	end
 end

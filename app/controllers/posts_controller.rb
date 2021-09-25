@@ -1,23 +1,30 @@
 class PostsController < ApplicationController
+	before_action :authenticate_user!
+	before_action :correct_user, only: [:edit, :update]
+
 	def new
 		@post = Post.new
 	end
 
   def create
-  	#ポスト作成機能
-  	@post = Post.new(post_params)
-  	@post.user_id = current_user.id
-  	@post.category_id = params[:post][:select_category]
-  	@post.save
-  	#アクティビティポイント作成機能
-
-  	activity_point = ActivityPoint.new
-  	activity_point.category_id = @post.category_id
-  	activity_point.user_id = current_user.id
-  	activity_point.activity_point += 10
-  	activity_point.post_id = @post.id
-  	activity_point.save
-  	redirect_to post_path(@post)
+		#ポスト作成機能
+		@post = Post.new(post_params)
+		@post.user_id = current_user.id
+		@post.category_id = params[:post][:select_category]
+		if @post.save
+			flash[:notice] = "投稿が完了しました"
+			#アクティビティポイント作成機能
+			activity_point = ActivityPoint.new
+			activity_point.category_id = @post.category_id
+			activity_point.user_id = current_user.id
+			activity_point.activity_point += 10
+			activity_point.post_id = @post.id
+			activity_point.save
+			redirect_to post_path(@post)
+		else
+			flash.now[:alert] = "必要事項を入力してください"
+			render("posts/new")
+		end
   end
 
 	def index
@@ -41,8 +48,14 @@ class PostsController < ApplicationController
 
 	def update
 		post = Post.find(params[:id])
-		post.update(post_params)
-		redirect_to post_path(post)
+		if post.update(post_params)
+			flash[:notice] = "投稿内容を変更しました"
+			redirect_to post_path(post)
+		else
+			flash.now[:alert] = "必要事項を入力してください"
+			@post = Post.find(params[:id])
+			render("posts/edit")
+		end
 	end
 
 	def destroy
@@ -52,8 +65,11 @@ class PostsController < ApplicationController
 	end
 
 	private
-
 	def post_params
 		params.require(:post).permit(:image, :body, :category_id)
+	end
+	def correct_user
+		@user = User.find(params[:id])
+		redirect_to(posts_path) unless @user == current_user
 	end
 end
