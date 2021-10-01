@@ -27,7 +27,9 @@
 				<% end %>
 			<% end %>
 		</div>
-		<%= link_to "登録情報編集", edit_user_path(current_user.id), style: 'margin: 0 0 0 auto;', class: 'btn btn-sm btn-primary' %>
+		<% if @user == current_user %>
+			<%= link_to "登録情報編集", edit_user_path(current_user.id), style: 'margin: 0 0 0 auto;', class: 'btn btn-sm btn-primary' %>
+		<% end %>
 	</div>
 	<div class="row activity-point-charts">
 		<h2>Activity Points</h2>
