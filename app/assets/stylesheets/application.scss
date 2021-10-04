@@ -507,3 +507,21 @@ footer p {
 .activity-point-charts {
 	margin: 20px;
 }
+
+.paginate {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 20px 0;
+}
+
+.pagination li a {
+  text-decoration: none;
+	color: black;
+	margin-right: 5px;
+}
+
+.pagination .active a {
+	color: black;
+	margin-right: 5px;
+}
