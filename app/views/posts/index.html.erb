@@ -68,7 +68,7 @@
 							<%= attachment_image_tag post.user, :icon_image, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
 						<% end %>
 						<%= post.user.name %>
-						<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span></br>
+						<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span><br>
 						<div class="timeline-card_contents">
 							<%= link_to post_path(post), style: 'text-decoration: none;' do %>
 								<div class="timeline-card_image"><%= attachment_image_tag post, :image, :fill, 216, 150, format: 'jpeg', fallback: "no_image.png", size:"216x150" %></div>
@@ -83,7 +83,7 @@
 								<%= attachment_image_tag post.user, :icon_image, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
 							<% end %>
 							<%= post.user.name %>
-							<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span></br>
+							<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span><br>
 							<div class="timeline-card_contents">
 							<%= link_to post_path(post), style: 'text-decoration: none;' do %>
 								<div class="timeline-card_image"><%= attachment_image_tag post, :image, :fill, 216, 150, format: 'jpeg', fallback: "no_image.png", size:"216x150" %></div>
@@ -98,7 +98,7 @@
 								<%= attachment_image_tag post.user, :icon_image, :fill, 50, 50, format: 'jpeg', fallback: "no_icon_image.jpeg", size:'50x50' %>
 							<% end %>
 							<%= post.user.name %>
-							<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span></br>
+							<span class="timeline-card_create-time"><%= post.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span><br>
 							<div class="timeline-card_contents">
 								<%= link_to post_path(post), style: 'text-decoration: none;' do %>
 									<div class="timeline-card_image"><%= attachment_image_tag post, :image, :fill, 216, 150, format: 'jpeg', fallback: "no_image.png", size:"216x150" %></div>

@@ -11,8 +11,11 @@ Rails.application.routes.draw do
     member do
       get :following, :followers
     end
+    collection do
+      get 'user/unsubscribe' => 'users#unsubscribe'
+      patch 'user/withdraw' => 'users#withdraw'
+    end
   end
-  get 'user/unsubscribe' => 'users#unsubscribe'
-  patch 'user/withdraw' => 'users#withdraw'
+
   resources :relationships, only: [:create, :destroy]
 end
