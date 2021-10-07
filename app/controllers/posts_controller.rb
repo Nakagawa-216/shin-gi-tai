@@ -69,7 +69,7 @@ class PostsController < ApplicationController
 		params.require(:post).permit(:image, :body, :category_id)
 	end
 	def correct_user
-		@user = User.find(params[:id])
-		redirect_to(posts_path) unless @user == current_user
+		@post = Post.find(params[:id])
+		redirect_to(posts_path) unless @post. == current_user
 	end
 end
