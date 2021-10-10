@@ -1,5 +1,5 @@
 <div class="container">
-	<h2 class="mb-4">フォローされているユーザー</h2>
+	<h2 class="mb-4"><%= @user.name %> さんをフォローしているユーザー</h2>
 	<% @users.each do |user| %>
 		<div class="row m-3">
 			<%= link_to user_path(user) do %>
