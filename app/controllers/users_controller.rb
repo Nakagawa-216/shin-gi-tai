@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 		@relationship = Relationship.new
 		#アクティビティポイントの処理
 		@activity_points = ActivityPoint.where(user_id: params[:id])
+		@weekly_points = @activity_points.where(created_at: 1.week.ago...Time.zone.now)
 	end
 
 	def following
